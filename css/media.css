@@ -1,1 +1,144 @@
+@media (min-width: 580px) {
 
+  .generator {
+    padding: 0 var(--apx-l-60) var(--apx-l-120);
+  }
+
+  .generator__title {
+    max-width: var(--apx-l-535);
+    padding: var(--apx-l-50) 0 var(--apx-l-40);
+    font-size: var(--apx-l-42);
+    line-height: 1;
+  }
+
+  .generator__settings {
+    padding: 0 0 var(--apx-l-26);
+    grid-template-columns: var(--apx-l-237) 1fr 1fr;
+    grid-template-rows: auto;
+    row-gap: var(--apx-l-20);
+    column-gap: var(--apx-l-24);
+  }
+
+  .generator__recipient,
+  .generator__vibe,
+  .generator__minmax,
+  .generator__color,
+  .generator__getbtn {
+    border: var(--apx-l-1) solid var(--color-black);
+    border-radius: var(--apx-l-8);
+  }
+
+  .generator__recipient,
+  .generator__vibe,
+  .generator__color,
+  .generator__getbtn {
+    padding: var(--apx-l-14);
+  }
+
+  .generator__recipient {
+    grid-column: 1;
+    grid-row: 1 / span 3;
+  }
+
+  .generator__vibe {
+    grid-column: 2 / span 2;
+    grid-row: 2;
+  }
+
+  .generator__minmax {
+    padding: var(--apx-l-9);
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .generator__color {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  .generator__getbtn {
+    grid-column: 2 / span 2;
+    grid-row: 3;
+  }
+
+  .generator__idea {
+    padding: var(--apx-l-50);
+    border-radius: var(--apx-l-8);
+  }
+
+}
+
+
+
+@media (min-width: 1024px) {
+
+  .generator {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 var(--apx-114) var(--apx-150);
+  }
+
+  .generator__title {
+    flex: 1 1 100%;
+    margin: 0 var(--apx-286);
+    padding: var(--apx-82) 0 var(--apx-46);
+    font-size: var(--apx-56);
+  }
+
+  .generator__settings {
+    padding: 0 var(--apx-73) 0 0;
+    grid-template-columns: var(--apx-237) var(--apx-196);
+    grid-template-rows: auto;
+    gap: var(--apx-24);
+  }
+
+  .generator__recipient,
+  .generator__vibe,
+  .generator__minmax,
+  .generator__color,
+  .generator__getbtn {
+    border: var(--apx-1) solid var(--color-black);
+    border-radius: var(--apx-8);
+  }
+
+  .generator__recipient,
+  .generator__vibe,
+  .generator__color,
+  .generator__getbtn {
+    padding: var(--apx-14);
+  }
+
+  .generator__recipient {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  .generator__vibe {
+    grid-column: 1 / span 2;
+    grid-row: 3;
+  }
+
+  .generator__minmax {
+    padding: var(--apx-14);
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .generator__color {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .generator__getbtn {
+    grid-column: 1 / span 2;
+    grid-row: 4;
+  }
+
+  .generator__idea {
+    width: var(--apx-680);
+    padding: var(--apx-50);
+    background-color: greenyellow;
+  }
+
+}

@@ -19,11 +19,11 @@ img {
   max-width: 100%;
 }
 
-/* @font-face {
-  font-family: "Maza";
-  src: local("maza-regular"),
-    url("../fonts/maza.woff2") format("woff2"),
-    url("../fonts/maza.woff") format("woff");
+@font-face {
+  font-family: "YS Text";
+  src: local("ys-text-regular"),
+    url("../fonts/ys-text.woff2") format("woff2"),
+    url("../fonts/ys-text.woff") format("woff");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -37,26 +37,23 @@ img {
   font-weight: 400;
   font-style: normal;
   font-display: swap;
-} */
+}
 
-/* :root {
-  --color-black: #343A3F;
-  --color-dark: #D3D3D3;
-  --color-grey: #F4F4F4;
-  --color-blue: #4888FF;
-  --color-light-blue: rgba(72, 136, 255, 0.5);
-  --color-purple: #672870;
+:root {
+  --color-black: #1E1E1E;
   --color-white: #fff;
+  --colors-background: #F0F0F0;
   --speed: 0.3s;
-} */
+}
 
-/* .page {
+.page {
   color: var(--color-black);
-  font-family: "Maza", sans-serif;
+  font-family: "YS Text", sans-serif;
   font-weight: 400;
   line-height: 1;
   overflow-x: hidden;
-} */
+  background-color: var(--colors-background);
+}
 
 .list-reset {
   margin: 0;
@@ -73,4 +70,77 @@ img {
 
 .margin-reset {
   margin: 0;
+}
+
+.generator {
+  display: flex;
+  flex-direction: column;
+}
+
+.generator__title {
+  max-width: var(--apx-m-243);
+  margin: 0 auto;
+  padding: var(--apx-m-38) 0 var(--apx-m-24);
+  font-family: "Tenor Sans", serif;
+  font-weight: 400;
+  font-size: var(--apx-m-28);
+  line-height: 0.9;
+  letter-spacing: -1.5px;
+  text-align: center;
+}
+
+.generator__settings {
+  padding: 0 var(--apx-m-16) var(--apx-m-38);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  row-gap: var(--apx-m-24);
+  column-gap: var(--apx-m-20);
+}
+
+.generator__recipient,
+.generator__vibe,
+.generator__minmax,
+.generator__color,
+.generator__getbtn {
+  border: var(--apx-m-1) solid var(--color-black);
+  border-radius: var(--apx-m-8);
+}
+
+.generator__recipient,
+.generator__vibe,
+.generator__color,
+.generator__getbtn {
+  padding: var(--apx-m-14);
+}
+
+.generator__recipient {
+  grid-column: 1 / span 2;
+  grid-row: 1;
+}
+
+.generator__vibe {
+  grid-column: 1 / span 2;
+  grid-row: 2;
+}
+
+.generator__minmax {
+  padding: var(--apx-m-9);
+  grid-column: 1;
+  grid-row: 3;
+}
+
+.generator__color {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+.generator__getbtn {
+  grid-column: 1 / span 2;
+  grid-row: 4;
+}
+
+.generator__idea {
+  padding: var(--apx-m-102) var(--apx-m-16) var(--apx-m-32);
+  background-color: greenyellow;
 }
