@@ -24,7 +24,6 @@
   .recipient,
   .minmax,
   .btn,
-  .recipient label,
   .animated-text {
     border: var(--apx-l-1) solid var(--color-black);
     border-radius: var(--apx-l-8);
@@ -51,9 +50,11 @@
     margin-bottom: var(--apx-l-14);
   }
 
-  .recipient label {
+  .recipient span {
     width: var(--apx-l-99);
     height: var(--apx-l-46);
+    border-width: var(--apx-l-1);
+    border-radius: var(--apx-l-8);
   }
 
   .animated-text {
@@ -81,7 +82,8 @@
 
   .vibe label {
     padding: var(--apx-l-14);
-    border: var(--apx-l-1) solid var(--color-black);
+    border-width: var(--apx-l-1);
+    border-radius: var(--apx-l-100);
   }
 
   .vibe svg {
@@ -109,7 +111,7 @@
   .color span {
     width: var(--apx-l-10);
     height: var(--apx-l-10);
-    border: var(--apx-l-1) solid var(--color-black);
+    border-width: var(--apx-l-1);
   }
 
   .color label:first-child span {
@@ -141,10 +143,29 @@
   }
 
   .idea {
-    position: relative;
     margin: 0;
-    padding: var(--apx-l-80) var(--apx-l-92);
     border-radius: var(--apx-l-8);
+    background-image: url(../img/idea-background-desk.png);
+  }
+
+  .video video {
+    border-radius: var(--apx-l-8);
+  }
+
+  .video-desk {
+    display: block;
+  }
+
+  .video-mob {
+    display: none;
+  }
+
+  .idea-background {
+    border-radius: var(--apx-l-8);
+  }
+
+  .idea-wrapper {
+    padding: var(--apx-l-80) var(--apx-l-92);
   }
 
   .idea-what,
@@ -193,6 +214,7 @@
   .share-desktop svg {
     width: var(--apx-l-39);
     height: var(--apx-l-29);
+    cursor: pointer;
   }
 
 }
@@ -207,8 +229,12 @@
   }
 
   .wrapper {
+    justify-content: center;
+  }
+
+  .generator {
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
   }
 
@@ -231,7 +257,6 @@
   .recipient,
   .minmax,
   .btn,
-  .recipient label,
   .animated-text {
     border: var(--apx-1) solid var(--color-black);
     border-radius: var(--apx-8);
@@ -258,9 +283,11 @@
     margin-bottom: var(--apx-14);
   }
 
-  .recipient label {
+  .recipient span {
     width: var(--apx-99);
     height: var(--apx-46);
+    border-width: var(--apx-1);
+    border-radius: var(--apx-8);
   }
 
   .animated-text {
@@ -278,7 +305,8 @@
 
   .vibe label {
     padding: var(--apx-14);
-    border: var(--apx-1) solid var(--color-black);
+    border-width: var(--apx-1);
+    border-radius: var(--apx-100);
   }
 
   .vibe svg {
@@ -307,7 +335,7 @@
   .color span {
     width: var(--apx-12);
     height: var(--apx-12);
-    border: var(--apx-1) solid var(--color-black);
+    border-width: var(--apx-1);
   }
 
   .color label:first-child span {
@@ -340,8 +368,19 @@
 
   .idea {
     width: var(--apx-680);
+    border-radius: var(--apx-8);
+  }
+
+  .video video {
+    border-radius: var(--apx-8);
+  }
+
+  .idea-background {
+    border-radius: var(--apx-8);
+  }
+
+  .idea-wrapper {
     padding: var(--apx-78) var(--apx-96);
-    background-color: greenyellow;
   }
 
   .idea-what,

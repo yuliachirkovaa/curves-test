@@ -77,7 +77,8 @@ img {
   padding: var(--apx-m-38) 0;
 }
 
-.wrapper {
+.wrapper,
+.generator {
   display: flex;
   flex-direction: column;
 }
@@ -139,15 +140,21 @@ img {
   gap: var(--apx-m-8);
 }
 
-.recipient label {
+.recipient span {
   display: flex;
   justify-content: center;
   align-items: center;
   width: var(--apx-m-125);
   height: var(--apx-m-47);
-  border: var(--apx-m-1) solid var(--color-black);
+  border-width: var(--apx-m-1);
+  border-style: solid;
+  border-color: var(--color-black);
   border-radius: var(--apx-m-8);
   cursor: pointer;
+}
+
+.recipient input:checked + span {
+  border-style: dashed;
 }
 
 .animated-text {
@@ -166,13 +173,18 @@ img {
 }
 
 .vibe label {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-grow: initial;
   padding: var(--apx-m-14);
-  border: var(--apx-m-1) solid var(--color-black);
-  border-radius: 100%;
+  border-width: var(--apx-m-1);
+  border-style: solid;
+  border-color: var(--color-black);
+  border-radius: var(--apx-m-100);
   cursor: pointer;
+  transition: flex-grow var(--speed) ease;
 }
 
 .vibe svg {
@@ -186,6 +198,19 @@ img {
   left: 50%;
   transform: translateX(-50%);
   margin-left: var(--apx-m-9);
+}
+
+.vibe input:checked ~ span {
+  display: block;
+}
+
+.vibe input:checked + svg {
+  margin-right: auto;
+}
+
+.vibe label:has(input:checked) {
+  flex-grow: 1;
+  border-style: dashed;
 }
 
 .minmax {
@@ -217,8 +242,15 @@ img {
   position: absolute;
   width: var(--apx-m-12);
   height: var(--apx-m-12);
-  border: var(--apx-m-1) solid var(--color-black);
+  border-width: var(--apx-m-1);
+  border-style: solid;
+  border-color: var(--color-black);
   border-radius: 100%;
+  cursor: pointer;
+}
+
+.color input:checked + span {
+  border-style: dashed;
 }
 
 .color label:first-child span {
@@ -252,9 +284,42 @@ img {
 }
 
 .idea {
+  position: relative;
   margin: 0 calc(var(--apx-m-16) * -1);
+  background-image: url(../img/idea-background-mob.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-desk {
+  display: none;
+}
+
+.idea-background {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.idea-wrapper {
+  width: 100%;
+  height: 100%;
   padding: var(--apx-m-102) var(--apx-m-16) var(--apx-m-32);
-  background-color: greenyellow;
+  opacity: 1;
 }
 
 .idea-what,
@@ -325,5 +390,6 @@ img {
 .share-mobile svg {
   width: var(--apx-m-23);
   height: var(--apx-m-17);
+  cursor: pointer;
 }
 
