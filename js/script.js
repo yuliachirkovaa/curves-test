@@ -251,6 +251,7 @@ const IDEAS = {
 
 document.addEventListener('DOMContentLoaded', function() {
 
+  // Находим элементы
   const form = document.querySelector('form.settings');
   const recipientInputs = document.querySelectorAll('input[name="recipient"]');
   const vibeInputs = document.querySelectorAll('input[name="vibe"]');
@@ -258,14 +259,24 @@ document.addEventListener('DOMContentLoaded', function() {
   const btnSubmit = document.querySelector('.btn-submit');
   const videoBlock = document.querySelector('.video');
   const ideaBackground = document.querySelector('.idea-background');
+  const ideaWhat = document.querySelector('.idea-what');
+  const ideaHow = document.querySelector('.idea-how');
+  const btnHow = document.querySelector('.btn-how');
+  const btnBack = document.querySelector('.btn-back');
   const ideaTitle = document.querySelector('.idea-title');
   const ideaWhatText = document.querySelector('.idea-what-text');
   const ideaHowText = document.querySelector('.idea-how-text');
 
-  if (recipientInputs.length === 0 || vibeInputs.length === 0 || colorInputs.length === 0 || !btnSubmit || !videoBlock || !ideaBackground) {
+  if (recipientInputs.length === 0 ||
+      vibeInputs.length === 0 ||
+      colorInputs.length === 0 ||
+      !btnSubmit ||
+      !videoBlock ||
+      !ideaBackground) {
     return;
   }
 
+  // Устанавливаем рандомные настройки при загрузке страницы
   const randomRecipientIndex = Math.floor(Math.random() * recipientInputs.length);
   const randomVibeIndex = Math.floor(Math.random() * vibeInputs.length);
   const randomColorIndex = Math.floor(Math.random() * colorInputs.length);
@@ -276,6 +287,13 @@ document.addEventListener('DOMContentLoaded', function() {
   randomVibeInput.checked = true;
   randomColorInput.checked = true;
 
+  // Функция для отслеживания изменений настроек
+  function enableSubmitOnChange() {
+    btnSubmit.disabled = false;
+    btnSubmit.innerHTML = 'Получить идею';
+  }
+
+  // Складывем значения инпутов в датасет формы
   function updateSelectedRecipientValue() {
     const selected = document.querySelector('input[name="recipient"]:checked');
     if (selected) {
@@ -304,38 +322,72 @@ document.addEventListener('DOMContentLoaded', function() {
   recipientInputs.forEach(input => {
     input.addEventListener('change', function() {
       updateSelectedRecipientValue();
+      enableSubmitOnChange();
     });
   });
 
   vibeInputs.forEach(input => {
     input.addEventListener('change', function() {
       updateSelectedVibeValue();
+      enableSubmitOnChange();
     });
   });
 
   colorInputs.forEach(input => {
     input.addEventListener('change', function() {
       updateSelectedColorValue();
+      enableSubmitOnChange();
     });
   });
 
+  // Прячем/показываем карточки идей
+  function showHowHideWhat() {
+    if (ideaWhat) ideaWhat.style.display = 'none';
+    if (ideaHow) ideaHow.style.display = 'flex';
+  }
+
+  function showWhatHideHow() {
+    if (ideaWhat) ideaWhat.style.display = 'flex';
+    if (ideaHow) ideaHow.style.display = 'none';
+  }
+
+  btnHow.addEventListener('click', function() {
+    showHowHideWhat();
+  });
+
+  btnBack.addEventListener('click', function() {
+    showWhatHideHow();
+  });
+
+  // Обработчик кнопки Получить идею
   btnSubmit.addEventListener('click', function(event) {
 
+    // Предотвращаем всплытие события
     event.preventDefault();
 
+    // Делаем кнопку неактивной до изменения настроек
+    btnSubmit.disabled = true;
+    btnSubmit.innerHTML = 'Поменяйте что-то в фильтрах';
+
+    // Показываем карточку идеи
+    showWhatHideHow();
+
+    // Вставляем текст согласно настройкам
     const selectedRecipient = form.dataset.selectedRecipient || (document.querySelector('input[name="recipient"]:checked')?.value);
     const selectedVibe = form.dataset.selectedVibe || (document.querySelector('input[name="vibe"]:checked')?.value);
     const selectedDiff = 'min';
-    ideaTitle.insertAdjacentText('afterbegin', IDEAS[selectedRecipient][selectedVibe][selectedDiff].what.title);
-    ideaWhatText.insertAdjacentText('afterbegin', IDEAS[selectedRecipient][selectedVibe][selectedDiff].what.text);
-    ideaHowText.insertAdjacentText('afterbegin', IDEAS[selectedRecipient][selectedVibe][selectedDiff].how.text);
+    ideaTitle.innerHTML = IDEAS[selectedRecipient][selectedVibe][selectedDiff].what.title;
+    ideaWhatText.innerHTML = IDEAS[selectedRecipient][selectedVibe][selectedDiff].what.text;
+    ideaHowText.innerHTML = IDEAS[selectedRecipient][selectedVibe][selectedDiff].how.text;
 
+    // Показываем цвет согласно настройкам
     const selectedColor = form.dataset.selectedColor || (document.querySelector('input[name="color"]:checked')?.value);
     if (selectedColor) {
       ideaBackground.style.backgroundColor = selectedColor;
     }
 
-    videoBlock.style.opacity = '0';
+    // Прячем видео
+    videoBlock.style.display = 'none';
 
   });
 

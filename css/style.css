@@ -42,7 +42,8 @@ img {
 :root {
   --color-black: #1E1E1E;
   --color-white: #fff;
-  --colors-background: #F0F0F0;
+  --color-background: #F0F0F0;
+  --color-grey: #D1D1D1;
   --speed: 0.3s;
 }
 
@@ -52,7 +53,7 @@ img {
   font-weight: 400;
   line-height: 1;
   overflow-x: hidden;
-  background-color: var(--colors-background);
+  background-color: var(--color-background);
 }
 
 .list-reset {
@@ -283,6 +284,12 @@ img {
   text-align: center;
 }
 
+.btn:disabled {
+  color: var(--color-black);
+  background-color: var(--color-grey);
+  border-color: var(--color-grey);
+}
+
 .idea {
   position: relative;
   margin: 0 calc(var(--apx-m-16) * -1);
@@ -331,10 +338,6 @@ img {
   border-radius: var(--apx-m-8);
   font-size: var(--apx-m-14);
   background-color: var(--color-white);
-}
-
-.idea-how {
-  display: none;
 }
 
 .idea-what h3,
