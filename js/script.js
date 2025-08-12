@@ -249,11 +249,18 @@ const IDEAS = {
   }
 };
 
+const TEXTS = {
+  colleagues: "Сканируем офисные будни",
+  partner: "Запущена программа ROMANTIKA",
+  family: "Уровень тепла настроен на 100%",
+  friends: "Анализируем весёлые воспоминания"
+};
+
 document.addEventListener('DOMContentLoaded', function() {
 
   // Находим элементы
-  const form = document.querySelector('form.settings');
   const recipientInputs = document.querySelectorAll('input[name="recipient"]');
+  const textEl = document.getElementById('text');
   const vibeInputs = document.querySelectorAll('input[name="vibe"]');
   const colorInputs = document.querySelectorAll('input[name="color"]');
   const btnSubmit = document.querySelector('.btn-submit');
@@ -266,6 +273,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const ideaTitle = document.querySelector('.idea-title');
   const ideaWhatText = document.querySelector('.idea-what-text');
   const ideaHowText = document.querySelector('.idea-how-text');
+  const speed = 40;
 
   if (recipientInputs.length === 0 ||
       vibeInputs.length === 0 ||
@@ -274,6 +282,22 @@ document.addEventListener('DOMContentLoaded', function() {
       !videoBlock ||
       !ideaBackground) {
     return;
+  }
+
+  // Функция для анимации печати текста
+  function typeText(text,) {
+    textEl.innerHTML = '';
+    let i = 0;
+
+    function print() {
+      if (i <= text.length) {
+        textEl.innerHTML = text.slice(0, i);
+        i++;
+        setTimeout(print, speed);
+      }
+    }
+
+    print();
   }
 
   // Устанавливаем рандомные настройки при загрузке страницы
@@ -286,56 +310,30 @@ document.addEventListener('DOMContentLoaded', function() {
   randomRecipientInput.checked = true;
   randomVibeInput.checked = true;
   randomColorInput.checked = true;
+  typeText(TEXTS[randomRecipientInput.value]);
 
-  // Функция для отслеживания изменений настроек
+  // Отслеживаем изменения настроек
   function enableSubmitOnChange() {
     btnSubmit.disabled = false;
     btnSubmit.innerHTML = 'Получить идею';
   }
 
-  // Складывем значения инпутов в датасет формы
-  function updateSelectedRecipientValue() {
-    const selected = document.querySelector('input[name="recipient"]:checked');
-    if (selected) {
-      form.dataset.selectedRecipient = selected.value;
-    }
-  }
-
-  function updateSelectedVibeValue() {
-    const selected = document.querySelector('input[name="vibe"]:checked');
-    if (selected) {
-      form.dataset.selectedVibe = selected.value;
-    }
-  }
-
-  function updateSelectedColorValue() {
-    const selected = document.querySelector('input[name="color"]:checked');
-    if (selected) {
-      form.dataset.selectedColor = selected.value;
-    }
-  }
-
-  updateSelectedRecipientValue();
-  updateSelectedVibeValue();
-  updateSelectedColorValue();
-
   recipientInputs.forEach(input => {
     input.addEventListener('change', function() {
-      updateSelectedRecipientValue();
       enableSubmitOnChange();
+      const selectedText = (document.querySelector('input[name="recipient"]:checked')?.value);
+      typeText(TEXTS[selectedText]);
     });
   });
 
   vibeInputs.forEach(input => {
     input.addEventListener('change', function() {
-      updateSelectedVibeValue();
       enableSubmitOnChange();
     });
   });
 
   colorInputs.forEach(input => {
     input.addEventListener('change', function() {
-      updateSelectedColorValue();
       enableSubmitOnChange();
     });
   });
@@ -373,15 +371,15 @@ document.addEventListener('DOMContentLoaded', function() {
     showWhatHideHow();
 
     // Вставляем текст согласно настройкам
-    const selectedRecipient = form.dataset.selectedRecipient || (document.querySelector('input[name="recipient"]:checked')?.value);
-    const selectedVibe = form.dataset.selectedVibe || (document.querySelector('input[name="vibe"]:checked')?.value);
+    const selectedRecipient = (document.querySelector('input[name="recipient"]:checked')?.value);
+    const selectedVibe = (document.querySelector('input[name="vibe"]:checked')?.value);
     const selectedDiff = 'min';
     ideaTitle.innerHTML = IDEAS[selectedRecipient][selectedVibe][selectedDiff].what.title;
     ideaWhatText.innerHTML = IDEAS[selectedRecipient][selectedVibe][selectedDiff].what.text;
     ideaHowText.innerHTML = IDEAS[selectedRecipient][selectedVibe][selectedDiff].how.text;
 
     // Показываем цвет согласно настройкам
-    const selectedColor = form.dataset.selectedColor || (document.querySelector('input[name="color"]:checked')?.value);
+    const selectedColor = (document.querySelector('input[name="color"]:checked')?.value);
     if (selectedColor) {
       ideaBackground.style.backgroundColor = selectedColor;
     }

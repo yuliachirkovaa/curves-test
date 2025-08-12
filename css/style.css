@@ -282,6 +282,7 @@ img {
   font-size: var(--apx-m-18);
   background-color: var(--color-black);
   text-align: center;
+  transition: all var(--speed) ease-in-out;
 }
 
 .btn:disabled {
@@ -292,6 +293,7 @@ img {
 
 .idea {
   position: relative;
+  height: var(--apx-m-600);
   margin: 0 calc(var(--apx-m-16) * -1);
   background-image: url(../img/idea-background-mob.png);
   background-size: cover;
@@ -326,6 +328,9 @@ img {
   width: 100%;
   height: 100%;
   padding: var(--apx-m-102) var(--apx-m-16) var(--apx-m-32);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   opacity: 1;
 }
 

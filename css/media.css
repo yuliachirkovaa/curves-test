@@ -58,13 +58,27 @@
   }
 
   .animated-text {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: block;
+    padding: var(--apx-l-40) var(--apx-l-28);
     height: var(--apx-l-120);
     color: var(--color-white);
     background: linear-gradient(341.79deg, #011008 36.18%, #555555 94.48%);
+    line-height: 1.2;
+    text-align: center;
+  }
 
+  #text {
+    display: inline;
+  }
+
+  #cursor {
+    display: inline;
+    opacity: 1;
+    animation: blink 0.8s steps(1) infinite;
+  }
+
+  @keyframes blink {
+    50% { opacity: 0; }
   }
 
   .vibe {
@@ -143,6 +157,7 @@
   }
 
   .idea {
+    height: var(--apx-l-500);
     margin: 0;
     border-radius: var(--apx-l-8);
     background-image: url(../img/idea-background-desk.png);
@@ -166,7 +181,7 @@
 
   .idea-wrapper {
     padding: var(--apx-l-80) var(--apx-l-92);
-    display: flex;
+    justify-content: center;
     align-items: center;
   }
 
@@ -217,6 +232,33 @@
     width: var(--apx-l-39);
     height: var(--apx-l-29);
     cursor: pointer;
+  }
+
+  .share-desktop svg path {
+    transition: all var(--speed) ease-in-out;
+  }
+
+  .share-desktop span {
+    position: absolute;
+    top: calc(var(--apx-l-65) * -1);
+    right: calc(var(--apx-l-70) * -1);
+    width: var(--apx-l-177);
+    padding: var(--apx-l-10) var(--apx-l-15);
+    border: var(--apx-l-1) dashed var(--color-black);
+    border-radius: var(--apx-l-8);
+    font-size: var(--apx-l-10);
+    line-height: 1.1;
+    background-color: var(--color-white);
+    opacity: 0;
+    transition: all var(--speed) ease-in-out;
+  }
+
+  .share-desktop:hover svg path {
+    fill: var(--color-white);
+  }
+
+  .share-desktop:hover span {
+    opacity: 1;
   }
 
 }
@@ -293,6 +335,7 @@
   }
 
   .animated-text {
+    padding: var(--apx-40) var(--apx-28);
     height: var(--apx-120);
   }
 
@@ -370,6 +413,7 @@
 
   .idea {
     width: var(--apx-680);
+    height: var(--apx-500);
     border-radius: var(--apx-8);
   }
 
@@ -426,6 +470,16 @@
   .share-desktop svg {
     width: var(--apx-40);
     height: var(--apx-30);
+  }
+
+  .share-desktop span {
+    top: calc(var(--apx-65) * -1);
+    right: calc(var(--apx-70) * -1);
+    width: var(--apx-177);
+    padding: var(--apx-10) var(--apx-15);
+    border: var(--apx-1) dashed var(--color-black);
+    border-radius: var(--apx-8);
+    font-size: var(--apx-10);
   }
 
 }
