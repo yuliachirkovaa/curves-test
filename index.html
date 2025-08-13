@@ -88,7 +88,41 @@
                 </div>
 
                 <div class="minmax">
+                  <span class="minmax-value">min</span>
                   <p class="margin-reset">Потяните ползунок, чтобы выбрать сложность</p>
+                  <div class="slider-container">
+                    <input type="range" min="1" max="100" value="1" class="slider" id="difficulty-range">
+                    <div class="slider-line"></div>
+                    <div class="slider-move">
+                      <svg class="slider-top" width="18" height="153" viewBox="0 0 18 153" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.1398 6.10352e-05L17.1398 89.366C17.1398 96.1507 14.1265 102.585 8.91463 106.929V106.929C-1.56665 115.664 -2.11244 131.577 7.74564 141.01L14.9723 147.925C16.3568 149.25 17.1398 151.083 17.1398 153V153" stroke="#1E1E1E"/>
+                      </svg>
+                      <div class="slider-shadow-wrapper">
+                        <svg class="slider-shadow" xmlns="http://www.w3.org/2000/svg" width="49" height="294" viewBox="0 0 49 294" fill="none">
+                          <mask id="mask0_3107_31168" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="49" height="294">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M48 105C47.5495 109.5 44.5 113.5 40 118C25.5 131.5 26.5 142.5 35 155C45.5 164 48.5 171 48.5 176L48.5 294H16.4505L16.4505 169.05C16.4505 162.37 13.503 156.035 8.40519 151.759C-2.30531 142.773 -2.86304 126.407 7.21064 116.704L14.4373 109.744C15.7232 108.505 16.4505 106.791 16.4505 105L16.4505 0L48.5 0L48 105Z" fill="black"/>
+                          </mask>
+                          <g mask="url(#mask0_3107_31168)">
+                            <g filter="url(#filter0_f_3107_31168)">
+                              <path fill-rule="evenodd" clip-rule="evenodd" d="M68.4505 105.5C68.4505 107.566 67.6117 109.542 66.1287 110.971L58.902 117.931C49.2595 127.219 49.7934 142.885 60.0454 151.485C65.3712 155.953 68.4505 162.571 68.4505 169.55L70.4505 302H39.4505L37.4505 169.55C37.4505 162.87 34.503 156.535 29.4052 152.259C18.6947 143.273 18.137 126.907 28.2106 117.204L35.4373 110.244C36.7232 109.005 37.4505 107.291 37.4505 105.5V105L37.4505 -40L68.4505 -40L68.4505 105V105.5Z" fill="url(#paint0_linear_3107_31168)"/>
+                              <path fill-rule="evenodd" clip-rule="evenodd" d="M68.4505 105.5C68.4505 107.566 67.6117 109.542 66.1287 110.971L58.902 117.931C49.2595 127.219 49.7934 142.885 60.0454 151.485C65.3712 155.953 68.4505 162.571 68.4505 169.55L70.4505 302H39.4505L37.4505 169.55C37.4505 162.87 34.503 156.535 29.4052 152.259C18.6947 143.273 18.137 126.907 28.2106 117.204L35.4373 110.244C36.7232 109.005 37.4505 107.291 37.4505 105.5V105L37.4505 -40L68.4505 -40L68.4505 105V105.5Z" stroke="url(#paint1_linear_3107_31168)"/>
+                            </g>
+                          </g>
+                          <defs>
+                            <filter id="filter0_f_3107_31168" x="0.5" y="-60.5" width="90.457" height="383" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                              <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                              <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                              <feGaussianBlur stdDeviation="10" result="effect1_foregroundBlur_3107_31168"/>
+                            </filter>
+                            <linearGradient id="paint0_linear_3107_31168" x1="45" y1="105.5" x2="45" y2="259.5" gradientUnits="userSpaceOnUse">
+                              <stop stop-color="#ABF59B"/>
+                              <stop offset="0.9998" stop-color="#ABF59B"/>
+                            </linearGradient>
+                          </defs>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
                 <div class="color">

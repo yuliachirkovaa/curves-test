@@ -1,7 +1,8 @@
-/*! ------ AdaptivePX.css v1.1 by Rikky: https://adaptivepx.com | All rights reserved (c) ------ */ 
+/*! ------ AdaptivePX.css v1.1 by Rikky: https://adaptivepx.com | All rights reserved (c) ------ */
 
 :root {
 
+  --apx-05: min(0.034722, 0.5px);
   --apx-1: min(0.069444vw, 1px);
   --apx-2: min(0.138888vw, 2px);
   --apx-3: min(0.208332vw, 3px);
@@ -1923,6 +1924,7 @@
   --apx-1919: min(133.263036vw, 1919px);
   --apx-1920: min(133.332480vw, 1920px);
 
+  --apx-l-05: 0.065104vw;
   --apx-l-1: 0.130208vw;
   --apx-l-2: 0.260416vw;
   --apx-l-3: 0.390624vw;
@@ -3324,6 +3326,7 @@
   --apx-l-1399: 182.160992vw;
   --apx-l-1400: 182.291200vw;
 
+  --apx-m-05: 0.156250vw;
   --apx-m-1: 0.312500vw;
   --apx-m-2: 0.625000vw;
   --apx-m-3: 0.937500vw;
