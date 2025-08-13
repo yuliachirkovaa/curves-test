@@ -481,7 +481,7 @@
   .slider-top {
     top: calc(var(--apx-93) * -1);
     left: var(--apx-55);
-    width: var(--apx-30);
+    width: var(--apx-31);
     height: var(--apx-134);
     transform: translateX(var(--apx-05));
   }
