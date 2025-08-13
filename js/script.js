@@ -325,6 +325,9 @@ document.addEventListener('DOMContentLoaded', function() {
   randomVibeInput.checked = true;
   randomColorInput.checked = true;
   typeText(TEXTS[randomRecipientInput.value]);
+  sliderShadowStops.forEach(stop => {
+    stop.setAttribute("stop-color", randomColorInput.value);
+  });
 
   // Двигаем картинки вместе со слайдером
   function updateSliderMove() {
@@ -369,7 +372,6 @@ document.addEventListener('DOMContentLoaded', function() {
     input.addEventListener('change', function() {
       enableSubmitOnChange();
       const selectedColor = document.querySelector('input[name="color"]:checked')?.value;
-      console.log(sliderShadowStops);
       sliderShadowStops.forEach(stop => {
         stop.setAttribute("stop-color", selectedColor);
       });
